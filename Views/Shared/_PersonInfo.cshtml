@@ -1,0 +1,13 @@
+﻿@model Contact_UI.Models.Person;
+
+
+<tr>
+	<td>@Model.Name</td>
+	<td>@Model.Email</td>
+	<td>@Model.PhoneNumber</td>
+	<td>
+		<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+		<a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-info">Details</a>
+		<a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+	</td>
+</tr>

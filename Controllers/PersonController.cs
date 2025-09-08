@@ -14,10 +14,7 @@ namespace Contact_UI.Controllers
         }
 
 
-        public IActionResult ContactList()
-        {
-            return View();
-        }
+       
 
         public IActionResult Create()
         {

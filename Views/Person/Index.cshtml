@@ -16,16 +16,7 @@
 	<tbody>
 		@foreach (var person in Model)
 		{
-			<tr>
-				<td>@person.Name</td>
-				<td>@person.Email</td>
-				<td>@person.PhoneNumber</td>
-				<td>
-					<a asp-action="Edit" asp-route-id="@person.Id" class="btn btn-primary">Edit</a>
-					<a asp-action="Details" asp-route-id="@person.Id" class="btn btn-info">Details</a>
-					<a asp-action="Delete" asp-route-id="@person.Id" class="btn btn-danger">Delete</a>
-				</td>
-			</tr>
+			<partial name="_PersonInfo" model="person" />
 		}
 	</tbody>
 
