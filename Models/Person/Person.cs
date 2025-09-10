@@ -6,14 +6,17 @@ namespace Contact_UI.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        public string Name { get; set; } = string.Empty;
-        [Required]
-        public string Email { get; set; } = string.Empty;
-        [Required]
-        public string PhoneNumber { get; set; } = string.Empty;
+		[Required(ErrorMessage = "Name is required")]
+		public string Name { get; set; } = string.Empty;
 
-        [Required]
-        public string Message { get; set; } = string.Empty;
+		[Required(ErrorMessage = "email is required")]
+		public string Email { get; set; } = string.Empty;
+
+		[Required(ErrorMessage = "Phone number is required")]
+		public string PhoneNumber { get; set; } = string.Empty;
+	
+		[StringLength(200, ErrorMessage = "Message cannot be longer than 200 characters.")]
+		[Required(ErrorMessage = "Message is required")]
+		public string Message { get; set; } = string.Empty;
     }
 }
