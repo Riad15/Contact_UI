@@ -46,12 +46,50 @@ namespace Contact_UI.Controllers
 		public IActionResult Details(int id)
         {
 			var person = PersonRepository.GetAllPersons().FirstOrDefault(p => p.Id == id);
-			if (person == null)
+			if (person != null)
             {
-				return NotFound();
+			
+				return View(person);
+			}
+			return NotFound();
+
+		}
+
+
+		public IActionResult Edit(int id)
+		{
+			var person = PersonRepository.GetAllPersons().FirstOrDefault(p => p.Id == id);
+			if (person != null)
+			{
+				return View(person);
+				
+			}
+			return NotFound();
+
+		}
+
+		[HttpPost]
+		public IActionResult Edit(Models.Person person)
+		{
+			if (ModelState.IsValid)
+			{
+				var existingPerson = PersonRepository.GetAllPersons().FirstOrDefault(p => p.Id == person.Id);
+				if (existingPerson == null)
+				{
+					return NotFound();
+				}
+
+				existingPerson.Name = person.Name;
+				existingPerson.Email = person.Email;
+				existingPerson.PhoneNumber = person.PhoneNumber;
+				existingPerson.Message = person.Message;
+
+				TempData["Success"] = "Person updated successfully!";
+				return RedirectToAction("Index");
 			}
 			return View(person);
 		}
+
 
 
 		public IActionResult Delete(int id)
