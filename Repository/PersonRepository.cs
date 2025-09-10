@@ -20,8 +20,17 @@ namespace Contact_UI.Repository
           }
     
           public static  List<Person> GetAllPersons()
-        {
+          {
                 return persons;
           }
+
+        public static void DeletePerson(int id)
+        {
+				var person = persons.FirstOrDefault(p => p.Id == id);
+				if (person != null)
+            {
+					persons.Remove(person);
+				}
+		  }
     }
 }

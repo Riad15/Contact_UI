@@ -1,0 +1,20 @@
+﻿@model Contact_UI.Models.Person;
+
+
+<div>
+	<h1> Person Details </h1>
+</div>
+
+<div class="card" style="width: 40rem;">
+	<div class="d-flex justify-content-end m-2">
+			<a asp-action="Index" class="btn btn-primary">Back to List</a>
+	</div>
+	<div class="card-body">
+		<div>
+			<h4>Name :@Model.Name</h4>
+		     <p>Email : @Model.Email</p>
+			 <p>Phone Number : @Model.PhoneNumber</p>
+			 <p>Message : @Model.Message</p>
+	</div>
+</div>
+

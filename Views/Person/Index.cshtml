@@ -1,6 +1,29 @@
 ﻿@model IEnumerable<Person>
 
 
+
+
+
+
+
+
+@if (TempData["SuccessMessage"] == "Person created successfully!")
+{
+
+	@if (TempData["Success"] != null)
+	{
+		<p class="alert alert-success" id="SuccessMessage">@TempData["Success"]</p>
+	}
+
+}
+else
+{
+	@if (TempData["Success"] != null)
+	{
+		<p class="alert alert-success" id="SuccessMessage">@TempData["Success"]</p>
+	}
+}
+
 <div class="row" >
 	<div class="col-6">
 		<h1> contact List </h1>
@@ -9,6 +32,7 @@
 		<a href="Person/Create" class="btn btn-primary">Add New Contact</a>
 	</div>
 </div>
+
 
 
 <table class="table">
@@ -29,5 +53,10 @@
 
 
 
+<script>
+	setTimeout(function () {
+		$('#SuccessMessage').fadeOut('fast');
+	}, 1000); // <-- time in milliseconds
 
+</script>
 

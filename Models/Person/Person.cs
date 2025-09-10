@@ -10,6 +10,7 @@ namespace Contact_UI.Models
 		public string Name { get; set; } = string.Empty;
 
 		[Required(ErrorMessage = "email is required")]
+		[EmailAddress(ErrorMessage = "Invalid email address")]
 		public string Email { get; set; } = string.Empty;
 
 		[Required(ErrorMessage = "Phone number is required")]
